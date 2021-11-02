@@ -2,10 +2,10 @@ package tree;
 
 public class Main {
     public static void main(String[] args) {
-        Tree<Integer> tree=new DefaultTree<>();
+        Tree<Integer> tree = new DefaultTree<>();
 
+/*        tree.addNode(10);
         tree.addNode(20);
-        tree.addNode(15);
         tree.addNode(25);
         tree.addNode(10);
         tree.addNode(24);
@@ -16,6 +16,11 @@ public class Main {
         tree.addNode(19);
 
         tree.deleteNode(15);
+
+
+        System.out.println(tree.containsNode(18));*/
+
+
 
         System.out.println(tree);
     }
