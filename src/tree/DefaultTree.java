@@ -27,7 +27,7 @@ public class DefaultTree<T extends Comparable<T>> implements Tree<T> {
         if (comparisonResult == 0) {
             return true;
         }
-        return comparisonResult < 0
+        return comparisonResult > 0
                 ? containsNode(currentNode.getLeft(), value)
                 : containsNode(currentNode.getRight(), value);
     }
@@ -35,9 +35,9 @@ public class DefaultTree<T extends Comparable<T>> implements Tree<T> {
     private TreeNode<T> addNode(TreeNode<T> currentNode, T value) {
         if (currentNode == null) {
             currentNode = new DefaultTreeNode<>(value);
-        } else if (currentNode.getValue().compareTo(value) < 0) {
-            currentNode.setLeft(addNode(currentNode.getLeft(), value));
         } else if (currentNode.getValue().compareTo(value) > 0) {
+            currentNode.setLeft(addNode(currentNode.getLeft(), value));
+        } else if (currentNode.getValue().compareTo(value) < 0) {
             currentNode.setRight(addNode(currentNode.getRight(), value));
         }
         return currentNode;
@@ -48,12 +48,12 @@ public class DefaultTree<T extends Comparable<T>> implements Tree<T> {
             return null;
         }
 
-        if (currentNode.getValue().compareTo(value) > 0) {
+        if (currentNode.getValue().compareTo(value) < 0) {
             currentNode.setRight(deleteNode(currentNode.getRight(), value));
             return currentNode;
         }
 
-        if (currentNode.getValue().compareTo(value) < 0) {
+        if (currentNode.getValue().compareTo(value) > 0) {
             currentNode.setLeft(deleteNode(currentNode.getLeft(), value));
             return currentNode;
         }

@@ -20,6 +20,6 @@ public class User implements Comparable<User>{
 
     @Override
     public int compareTo(User o) {
-        return o.getAge()-this.getAge();
+        return this.getAge()-o.getAge();
     }
 }
